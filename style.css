@@ -1,0 +1,510 @@
+.body-base {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f8fafc;
+    color: #334155;
+    scroll-behavior: smooth;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+    .section-padding {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+@media (min-width: 1024px) {
+    .section-padding {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.section-content-wrapper {
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+@media (min-width: 640px) {
+    .header-inner {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+@media (min-width: 1024px) {
+    .header-inner {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.logo-link {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    text-decoration: none;
+}
+
+.main-nav {
+    display: none;
+    column-gap: 0.5rem;
+}
+
+.main-nav.active { /* Style for active mobile menu */
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 5rem; /* Adjust based on header height */
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque for readability */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    padding: 1rem 0; /* Add some padding */
+    z-index: 40; /* Ensure it's above content but below sticky header if needed */
+}
+
+.main-nav.active .nav-item {
+    padding: 0.75rem 1.5rem; /* Adjust padding for mobile view */
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid #e2e8f0; /* Add separators */
+}
+.main-nav.active .nav-item:last-child {
+    border-bottom: none;
+}
+
+
+@media (min-width: 768px) {
+    .main-nav {
+        display: flex;
+        flex-direction: row; /* Ensure it's row for desktop */
+        position: static; /* Reset position for desktop */
+        width: auto; /* Reset width for desktop */
+        background-color: transparent; /* Reset background for desktop */
+        box-shadow: none; /* Reset shadow for desktop */
+        padding: 0; /* Reset padding for desktop */
+    }
+    .main-nav.active { /* Desktop should not use active state for flex-direction etc. */
+        display: flex;
+    }
+     .main-nav .nav-item {
+        padding: 10px 20px; /* Restore original padding for desktop */
+        border-bottom: none; /* Remove border for desktop */
+    }
+}
+
+
+.nav-item {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    color: #007bff;
+}
+
+.mobile-menu-button-container {
+    /* display: block; by default for mobile-first, but hidden by .main-nav rules on larger screens */
+}
+
+@media (min-width: 768px) {
+    .mobile-menu-button-container {
+        display: none;
+    }
+}
+
+.mobile-menu-toggle {
+    /* Basic button styling, Tailwind might handle some of this */
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.mobile-menu-icon {
+    width: 1.5rem; /* 24px */
+    height: 1.5rem; /* 24px */
+    color: #334155; /* slate-700 */
+}
+
+
+.hero-section {
+    min-height: calc(100vh - 5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f5f9;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center; /* Added for overall text alignment */
+}
+@media (min-width: 640px) {
+    .hero-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+@media (min-width: 1024px) {
+    .hero-section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 48rem; /* Was 800px, adjusted to match original Tailwind class max-w-3xl */
+}
+
+.hero-title {
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem; /* Added from later duplicate rule */
+}
+@media (min-width: 640px) {
+    .hero-title {
+        font-size: 3.75rem;
+    }
+}
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 4.5rem;
+    }
+}
+
+.hero-title-highlight {
+    color: #0284c7;
+}
+
+.hero-subtitle {
+    margin-top: 1.5rem;
+    font-size: 1.125rem; /* Was 1.25rem, adjusted to match original Tailwind class text-lg */
+    line-height: 1.75rem;
+    color: #475569; /* Was #666, adjusted to match original Tailwind class text-slate-600 */
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem; /* Added from later duplicate rule */
+}
+
+.hero-button-container {
+    margin-top: 2.5rem;
+}
+
+.hero-button {
+    display: inline-block;
+    background-color: #334155; /* Was #007bff, adjusted to match original */
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0.75rem 2rem; /* Was 1rem 2rem, adjusted */
+    border-radius: 0.5rem; /* Was 5px, adjusted */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition-property: transform, background-color;
+    transition-duration: 300ms;
+    text-decoration: none;
+}
+.hero-button:hover {
+    background-color: #1e293b; /* Was #0056b3, adjusted */
+    transform: scale(1.05);
+}
+
+.about-section {
+    background-color: #ffffff;
+}
+
+.section-heading {
+    font-size: 1.875rem; /* Was 2.5rem, adjusted */
+    line-height: 2.25rem;
+    font-weight: 600;
+    color: #1e293b; /* Was #333, adjusted */
+    margin-bottom: 2.5rem; /* Was 3rem, adjusted */
+    text-align: center;
+}
+
+.about-text-container {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /* Removed flex properties from later duplicate rule as they are not needed for centered text */
+}
+
+.profile-image {
+    width: 9rem; /* Was 150px, adjusted */
+    height: 9rem; /* Was 150px, adjusted */
+    border-radius: 9999px; /* Was 50%, adjusted for consistency */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    object-fit: cover;
+}
+
+.about-paragraph {
+    font-size: 1.125rem; /* Was 1.1rem, adjusted */
+    line-height: 1.75rem; /* Was 1.6, adjusted */
+    color: #475569; /* Was #666, adjusted */
+    margin-bottom: 1rem;
+    max-width: 800px; /* Kept from later rule as it might be specific */
+    text-align: center; /* Kept from later rule */
+}
+.about-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.projects-section {
+    background-color: #f1f5f9;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* Was repeat(auto-fit, minmax(300px, 1fr)), adjusted */
+    gap: 2rem;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (min-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.project-item {
+    background-color: #ffffff;
+    border-radius: 0.75rem; /* Was 10px, adjusted */
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* Was 0 2px 5px rgba(0,0,0,0.1), adjusted */
+    overflow: hidden;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms; /* Was transform 0.3s ease, adjusted */
+}
+.project-item:hover {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    transform: scale(1.05); /* Was translateY(-5px), adjusted */
+}
+
+.project-image {
+    width: 100%;
+    height: 14rem; /* Was 200px, adjusted */
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 1.5rem;
+}
+
+.project-title {
+    font-size: 1.25rem; /* Was 1.5rem, adjusted */
+    line-height: 1.75rem;
+    font-weight: 600;
+    color: #1e293b; /* Was #333, adjusted */
+    margin-bottom: 0.5rem; /* Was 1rem, adjusted */
+}
+
+.project-description {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #475569; /* Was #666, adjusted */
+    margin-bottom: 1rem;
+}
+
+.project-link {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #0ea5e9; /* Was #007bff, adjusted */
+    font-weight: 500;
+    text-decoration: none;
+}
+.project-link:hover {
+    color: #0369a1;
+    text-decoration-line: underline;
+}
+
+.contact-section {
+    background-color: #ffffff;
+}
+
+.contact-content-container {
+    text-align: center;
+    max-width: 42rem; /* Was 600px, adjusted */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-intro {
+    font-size: 1.125rem; /* Was 1.1rem, adjusted */
+    line-height: 1.75rem;
+    color: #475569; /* Was #666, adjusted */
+    margin-bottom: 1.5rem; /* Was 2rem, adjusted */
+}
+
+.contact-button {
+    display: inline-block;
+    background-color: #0ea5e9; /* Was #007bff, adjusted */
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0.75rem 2rem; /* Was 1rem 2rem, adjusted */
+    border-radius: 0.5rem; /* Was 5px, adjusted */
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition-property: transform, background-color;
+    transition-duration: 300ms;
+    text-decoration: none;
+    margin-bottom: 2rem; /* Added from later duplicate rule */
+}
+.contact-button:hover {
+    background-color: #0369a1; /* Was #0056b3, adjusted */
+    transform: scale(1.05);
+}
+
+.social-links {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    column-gap: 1.5rem; /* Was gap: 1rem, adjusted */
+}
+
+.social-link-item {
+    color: #64748b; /* Was #666, adjusted */
+    transition-property: color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms; /* Was color 0.3s ease, adjusted */
+}
+.social-link-item:hover {
+    color: #0ea5e9; /* Was #007bff, adjusted */
+}
+
+.social-icon {
+    width: 1.75rem; /* Was 24px, adjusted */
+    height: 1.75rem; /* Was 24px, adjusted */
+}
+
+.site-footer {
+    background-color: #f1f5f9; /* Was #333, adjusted */
+    border-top: 1px solid #e2e8f0;
+    color: #64748b; /* Adjusted from white based on .copyright-text */
+    padding: 2rem; /* Added from later duplicate rule */
+    text-align: center; /* Added from later duplicate rule */
+}
+
+.footer-content {
+    padding: 2rem 1rem;
+    text-align: center;
+    max-width: 1200px; /* Kept from later rule */
+    margin: 0 auto; /* Kept from later rule */
+}
+@media (min-width: 640px) {
+    .footer-content {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+@media (min-width: 1024px) {
+    .footer-content {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.copyright-text {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #64748b;
+    margin-bottom: 0.5rem; /* Added from later duplicate rule */
+}
+
+.disclaimer-text {
+    font-size: 0.75rem; /* Was 0.9rem, adjusted */
+    line-height: 1rem;
+    color: #94a3b8; /* Was #999, adjusted */
+    margin-top: 0.25rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Removed body duplicate, ul, li as they are either covered or not used */
+
+@media (max-width: 768px) {
+    .header-inner {
+        padding: 0 1rem;
+    }
+
+    .main-nav {
+        /* display: none; is handled by default and .active class logic */
+    }
+    .main-nav:not(.active) { /* Ensure it's hidden if not active on mobile */
+        display:none;
+    }
+
+
+    .mobile-menu-button-container {
+        display: block;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-padding {
+        padding: 3rem 1rem;
+    }
+
+    .section-heading {
+        font-size: 2rem;
+    }
+}
