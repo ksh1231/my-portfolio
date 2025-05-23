@@ -131,11 +131,11 @@
 
         if (menuButton && mainNav) {
             menuButton.addEventListener('click', () => {
-                mainNav.classList.toggle('active'); // You'll need to define an 'active' class in your CSS to show/hide the menu
+                mainNav.classList.toggle('active'); 
             });
         }
 
-        // Smooth scroll for navigation links
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
